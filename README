@@ -1,0 +1,38 @@
+Tornado Blog App
+
+(c) Vladyslav Ishchenko 12.2014
+====================================
+
+Steck of Tech
+
+Backend:
+	Main framefork: Tornado
+	DB: Riack
+
+Frontend:
+	Backbonejs
+	Marionettejs
+	Backbone-relations
+	Bootstrap from Twitter:
+		Project layout:
+			https://github.com/ironsummitmedia/startbootstrap-clean-blog/
+
+
+1. Install prerequisites and build tornado
+
+
+2. Install DB
+
+
+3. Install project prerequisites
+	pip install -r
+
+5. Run the blog example
+   cd 
+   ./app.py
+   If need chmod +x app.py
+
+
+6. Go to the site
+
+   http://localhost:8888/

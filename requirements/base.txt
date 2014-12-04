@@ -1,0 +1,5 @@
+# BASE DEVELOPMENT DEPENDENCIES
+tornado==4.0.2
+MySQL-python==1.2.5
+torndb==0.3
+Markdown==2.5.2

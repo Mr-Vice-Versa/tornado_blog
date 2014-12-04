@@ -1,0 +1,5 @@
+# LOCAL DEVELOPMENT DEPENDENCIES
+
+-r base.txt
+
+# Install local requirements
