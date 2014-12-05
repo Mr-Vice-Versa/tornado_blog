@@ -1,0 +1,12 @@
+<div class="post-preview">
+    <a href="{{ handler.reverse_url("entry_id", entry.id) }}">
+        <h2 class="post-title">
+            {{ entry.title }}
+        </h2>
+        <h3 class="post-subtitle">
+            {% raw entry.html[0:100] %}...
+        </h3>
+    </a>
+    <p class="post-meta">Posted by {{ handler.get_author_name(entry.author_id, field="name") }} on {{ locale.format_date(entry.published, full_format=True, shorter=True) }}</p>
+</div>
+<hr>

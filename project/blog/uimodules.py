@@ -7,6 +7,6 @@ from tornado.web import UIModule
 
 
 class EntryModule(UIModule):
-    """Render ech item of entry model."""
+    """Render entry model."""
     def render(self, entry):
         return self.render_string("modules/entry.html", entry=entry)
