@@ -37,7 +37,8 @@ class EntryMySQLAPIHandler(BaseHandler):
             entry_queryset  = self.db.query("SELECT * FROM entries ORDER BY published " "DESC")
         response = json.dumps(entry_queryset, cls=DateTimeEncoder)
         self.set_header('Content-Type', 'application/javascript')
-        self.write(json_encode(response))
+        # self.write(json_encode(response))
+        self.write(response)
 
     def post(self, *args, **kwargs):
         """Request POST.

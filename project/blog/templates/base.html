@@ -25,9 +25,12 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="{{ static_url("js/html5shiv.js") }}"></script>
-        <script src="{{ static_url("js/respond.min.js") }}"></script>
+        <script src="{{ static_url("js/libs/html5shiv/html5shiv.js") }}"></script>
+        <script src="{{ static_url("js/libs/respond/respond.min.js") }}"></script>
     <![endif]-->
+
+    <!-- Requirejs -->
+    <script data-main="{{ static_url("js/main.js") }}" src="{{ static_url("js/require.js") }}"></script>
 
 </head>
 
@@ -54,7 +57,7 @@
                         <a href="{{ handler.reverse_url("index") }}">{{ _("Index") }}</a>
                     </li>
                     <li>
-                        <a href="#">{{ _("Archive") }}</a>
+                        <a data-backbone="archive" href="#">{{ _("Archive") }}</a>
                     </li>
                     <li>
                         {% if current_user %}
@@ -98,7 +101,7 @@
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="next">
-                        <a href="{{ handler.reverse_url("entry_list") }}">All Posts &rarr;</a>
+                        <a data-backbone="archive" href="#">All Posts &rarr;</a>
                     </li>
                 </ul>
             </div>
@@ -144,14 +147,13 @@
         </div>
     </footer>
 
-    <!-- jQuery -->
-    <script src="{{ static_url("js/jquery.js") }}"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{{ static_url("js/bootstrap.min.js") }}"></script>
+
+    <!-- jQuery -->
+    <script src="{{ static_url("js/libs/jquery/jquery.js") }}"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="{{ static_url("js/clean-blog.min.js") }}"></script>
+    <script src="{{ static_url("js/libs/clean-blog/clean-blog.min.js") }}"></script>
 
 </body>
 
