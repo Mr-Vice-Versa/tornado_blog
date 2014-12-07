@@ -41,6 +41,12 @@ require.config({
 				'backbone',
 			],
             exports: 'Form'
+        },
+		'backbone.marionette': {
+            deps: [
+				'backbone',
+			],
+            exports: 'Marionette'
         }
 	},
 
@@ -53,6 +59,7 @@ require.config({
         modernizr: 'libs/modernizr/modernizr',
 		'backbone.paginator': 'libs/backbone.paginator/backbone.paginator',
 		'backbone-forms': 'libs/backbone-forms/backbone-forms',
+		'backbone.marionette': 'libs/backbone.marionette/backbone.marionette'
 	}
 });
 

@@ -26,34 +26,30 @@ class EntryMySQLAPIHandler(BaseHandler):
     def decode(self, data):
         return json.loads(data)
 
-    def _get_entry_or_404(self, entry_id):
-        entry_queryset = self.db.get("SELECT * FROM entries WHERE id = %s", entry_id)
-        if not entry_queryset: raise HTTPError(404)
-        return entry_queryset
-
-    # def writre_json_response(self, entry_queryset):
-    #     """Dump to JSON and return write (response)."""
-    #     response = json.dumps(entry_queryset, cls=DateTimeEncoder)
-    #     self.set_header('Content-Type', 'application/javascript')
-    #     self.write(json_encode(response))
-
     def get(self, *args, **kwargs):
         """Request GET."""
         if args:
             # Single entry object.
-            entry_queryset  = self._get_entry_or_404(args[0])
+            entry_queryset = self.db.get("SELECT * FROM entries WHERE id = %s", args[0])
+            if not entry_queryset: raise HTTPError(404)
             # add entry.get_url for templates.
             entry_queryset['get_url'] = self.reverse_url("entry_id", entry_queryset.id)
         else:
             # List of entries.
-            entry_queryset  = self.db.query("SELECT * FROM entries ORDER BY published " "DESC")
+            per_page = self.get_argument("per_page", None)
+            if per_page:
+                sql = "SELECT * FROM entries ORDER BY published DESC LIMIT {0}".format(per_page)
+            else:
+                sql = "SELECT * FROM entries ORDER BY published DESC"
+            entry_queryset  = self.db.query(sql)
+
+            # entry_queryset  = self.db.query("SELECT * FROM entries ORDER BY published " "DESC")
             # add entry.get_url for templates.
             for elem in entry_queryset:
                 elem['get_url'] = self.reverse_url("entry_id", elem.id)
 
         response = json.dumps(entry_queryset, cls=DateTimeEncoder)
         self.set_header('Content-Type', 'application/javascript')
-        # self.write(json_encode(response))
         self.write(response)
 
     @authenticated

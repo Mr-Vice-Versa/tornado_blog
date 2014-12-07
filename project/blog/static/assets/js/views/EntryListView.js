@@ -11,11 +11,11 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'backbone.marionette',
   'views/EntryView'],
-  function($, _, Backbone, EntryView){
+  function($, _, Backbone, Marionette, EntryView){
 
-      var EntryListView = Backbone.View.extend({
-          // EntryList View for render a list of objects.
+      var EntryListView = Backbone.Marionette.CompositeView.extend({
 
           tagName: 'div',
 
@@ -25,7 +25,6 @@ define([
           },
 
           render: function() {
-              console.log($(this.el)[0]);
               $(this.el).html('');
               this.collection.each(this.renderEntryView, this);
               return $(this.el).html();
@@ -38,7 +37,6 @@ define([
 
 
     });
-      // Returning instantiated views.
       return EntryListView;
 
 });

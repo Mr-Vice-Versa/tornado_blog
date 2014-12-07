@@ -14,12 +14,13 @@ define([
   'backbone-forms',
   'models/EntryModel',
   'utils/utils',
+  'backbone.marionette',
   // Using the Require.js text! plugin, we are loaded raw text
   // which will be used as our views primary template.
   'text!templates/blog/entry_add.html'],
-  function($, _, Backbone, Form, EntryModel, utils, entryAddViewTemplate){
+  function($, _, Backbone, Form, EntryModel, utils, Marionette, entryAddViewTemplate){
 
-      var EntryAddView = Backbone.View.extend({
+      var EntryAddView = Backbone.Marionette.ItemView.extend({
             tagName: 'div',
             className: 'post-preview',
 
