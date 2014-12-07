@@ -11,38 +11,76 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'models/EntryModel',
+    'collections/EntryIndexCollection',
     'collections/EntryCollection',
+    'views/EntryDetailView',
     'views/EntryListView',
+    'views/EntryAddView',
     'modernizr',
     'utils/utils'],
-    function ($, _, Backbone, EntryCollection, EntryListView,
-              Modernizr, utils) {
+    function ($, _, Backbone, EntryModel, EntryIndexCollection, EntryCollection,
+              EntryDetailView, EntryListView, EntryAddView, Modernizr, utils) {
 
         // Blog Routers
 
         var BlogRouter = Backbone.Router.extend({
             routes: {
-                '(?*query)': 'indexPage',
+                '': 'indexPage',
+                'entry': 'entryList',
+                'entry/:id': 'entryId',
+                'entry/new/': 'entryAdd'
             },
 
-            indexPage: function(query) {
-                // indexPage
+            indexPage: function(){
+                // indexPage 5 Entries.
+
                 console.log("indexPage");
+                var entryIndexCollection = new EntryIndexCollection();
+                var entryListView = new EntryListView({
+                    el: $('[data-container=main]'),
+                    collection: entryIndexCollection
+                });
+
+                // sync data from server.
+                entryIndexCollection.fetch();
+            },
+
+            entryId: function(id){
+                // indexPage 5 get Entry by Id.
+
+                console.log("entryId", id);
+                var entryModel = new EntryModel({id: id});
+                var entryDetailView = new EntryDetailView({
+                    el: $('[data-container=main]'),
+                    model: entryModel
+                });
+                // Get entry from server.
+                entryModel.fetch();
+
+            },
+
+            entryList: function(){
+                // entryList, all Entries without paginations.
+
+                console.log("entryList");
                 var entryCollection = new EntryCollection();
                 var entryListView = new EntryListView({
                     el: $('[data-container=main]'),
                     collection: entryCollection
                 });
 
-                if (query) {
-                    var queryData = utils.parseQueryString(query);
-                    entryCollection.fetch({data: queryData});
+                // sync data from server.
+                entryCollection.fetch();
+            },
 
-                } else {
-                    entryCollection.fetch(
-                    );
-                    console.log("indexPage.fetch");
-                }
+            entryAdd: function(){
+                // entryAdd, Add new Entries.
+
+                console.log("entryAdd");
+                var entryAddView = new EntryAddView({
+                    el: $('[data-container=main]')
+                });
 
             }
 

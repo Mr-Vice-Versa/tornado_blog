@@ -18,6 +18,6 @@ class BaseHandler(RequestHandler):
         """
         """
         user_id = self.get_secure_cookie("blogdemo_user")
+        if not user_id: return None
         user = self.db.get("SELECT * FROM authors WHERE id = %s", int(user_id))
-        if not user_id: user = None
         return user

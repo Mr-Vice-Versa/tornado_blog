@@ -24,8 +24,20 @@ define([
 
       // EntryModel Model
       var EntryModel = Backbone.Model.extend({
-        urlRoot: 'entry',
-        idAttribute: 'id'
+        urlRoot: '/entry',
+        idAttribute: 'id',
+
+        // Backbone.Form
+        schema: {
+            id:         'Text',
+            author_id:  'Text',
+            slug:       'Text',
+            title:      'Text',
+            markdown:   'Text',
+            html:       'Text',
+            published:  'Text',
+            updated:    'Text'
+        }
     });
 
   // Return the model for the module.

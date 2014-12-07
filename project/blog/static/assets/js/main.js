@@ -29,6 +29,18 @@ require.config({
 		},
         'modernizr': {
             exports: 'Modernizr'
+        },
+		'backbone.paginator': {
+            deps: [
+				'backbone',
+			],
+            exports: 'PageableCollection'
+        },
+		'backbone-forms': {
+            deps: [
+				'backbone',
+			],
+            exports: 'Form'
         }
 	},
 
@@ -38,7 +50,9 @@ require.config({
 		backbone: 'libs/backbone/backbone',
         'backbone-relational': 'libs/backbone-relational/backbone-relational',
 		text: 'libs/requirejs-text/text',
-        modernizr: 'libs/modernizr/modernizr'
+        modernizr: 'libs/modernizr/modernizr',
+		'backbone.paginator': 'libs/backbone.paginator/backbone.paginator',
+		'backbone-forms': 'libs/backbone-forms/backbone-forms',
 	}
 });
 

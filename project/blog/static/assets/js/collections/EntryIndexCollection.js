@@ -1,6 +1,6 @@
  /*
-Filename: EntryCollection.js
-Backbone EntryCollection
+Filename: EntryIndexCollection.js
+Backbone EntryIndexCollection
 
 (c) Vladyslav Ishchenko 12.2014
 */
@@ -10,8 +10,9 @@ Backbone EntryCollection
 define([
   'underscore',
   'backbone',
-  'models/EntryModel'],
-  function(_, Backbone, EntryModel){
+  'models/EntryModel',
+  'backbone.paginator'],
+  function(_, Backbone, EntryModel, PageableCollection){
 
       // Helpers
       var _parse = function(data){
@@ -24,12 +25,15 @@ define([
       };
 
       // EntryTitleModel Model
-      var EntryCollection = Backbone.Collection.extend({
+      var EntryIndexCollection = Backbone.PageableCollection.extend({
         model: EntryModel,
-        url: '/entry'
+        url: '/entry',
+        state: {
+            pageSize: 5
+        }
       });
 
       // Return the collection.
-      return EntryCollection;
+      return EntryIndexCollection;
 
 });

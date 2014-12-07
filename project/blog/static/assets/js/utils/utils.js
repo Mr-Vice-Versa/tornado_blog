@@ -52,9 +52,11 @@ define(
                     var csrfSafeMethod = function(method) {
                         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
                     };
-                    var csrftoken = getCookie('csrftoken');
+                    var csrftoken = getCookie('_xsrf');
+                    console.log('getCookie', 'X-XSRFToken');
                     if (!csrfSafeMethod(settings.type)) {
-                       xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                       xhr.setRequestHeader("X-XSRFToken", csrftoken);
+                       xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
                     }
                 }
             });

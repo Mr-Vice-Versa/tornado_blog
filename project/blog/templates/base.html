@@ -54,16 +54,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="{{ handler.reverse_url("index") }}">{{ _("Index") }}</a>
+                        <a data-backbone="backbone" href="{{ handler.reverse_url("index") }}">{{ _("Index") }}</a>
                     </li>
                     <li>
-                        <a data-backbone="archive" href="#">{{ _("Archive") }}</a>
+                        <a data-backbone="backbone" href="{{ handler.reverse_url("entry_list") }}">{{ _("Archive") }}</a>
                     </li>
-                    <li>
                         {% if current_user %}
-                            <a href="/auth/logout?next={{ url_escape(request.uri) }}">({{ current_user.name }}) {{ _("Sign out") }}</a>
+                            <li><a data-backbone="backbone" href="/entry/new/"> {{ _("New Post") }}</a></li>
+                            <li><a href="/auth/logout?next={{ url_escape(request.uri) }}">({{ current_user.name[:10] }}).. {{ _("Sign out") }}</a></li>
                         {% else %}
-                            {% raw _('<a href="%(url)s">Sign in</a>') % {"url": "/auth/login?next=" + url_escape(request.uri)} %}
+                            <li>{% raw _('<a href="%(url)s">Sign in</a>') % {"url": "/auth/login?next=" + url_escape(request.uri)} %}</li>
                         {% end if %}
                     </li>
                 </ul>
@@ -93,21 +93,8 @@
 
     <!-- Main Content -->
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
-                {% block body %}{% end %}
-
-                <!-- Pager -->
-                <ul class="pager">
-                    <li class="next">
-                        <a data-backbone="archive" href="#">All Posts &rarr;</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        {% block body %}{% end body%} 
     </div>
-
     <hr>
 
     <!-- Footer -->

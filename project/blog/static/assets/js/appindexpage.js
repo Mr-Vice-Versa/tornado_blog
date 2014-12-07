@@ -16,13 +16,18 @@ define([
 
   function($, _, Backbone, Router, utils){
       var initialize = function(){
-        // href
-        // utils.ajaxSetup();
-        $(document).on('click', 'a[data-backbone=archive]', function(e) {
-            console.log("click a[data-backbone=archive]");
+        utils.ajaxSetup();
+        $(document).on('click', 'a[data-backbone=backbone]', function(e) {
             e.preventDefault();
             var href = $(e.currentTarget).attr('href');
-            Backbone.history.navigate(href, { trigger: true });
+            if (href === "/entry/new/"){
+                Backbone.history.navigate(href, { trigger: true });
+                Backbone.history.navigate("");
+            }
+            else{
+                Backbone.history.navigate(href, { trigger: true });
+            }
+
         });
 
         Router.initialize();

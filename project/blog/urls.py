@@ -13,15 +13,13 @@ from handlers.auth import AuthLoginHandler, AuthLogoutHandler
 url_site_patterns = [
     url(r"/", IndexHandler, name="index"),
     url(r"/auth/login", AuthLoginHandler),
-    url(r"/auth/logout", AuthLogoutHandler),
+    url(r"/auth/logout", AuthLogoutHandler)
 ]
 
 # API
 url_api_patterns = [
-    url(r"/entry$", EntryMySQLAPIHandler, name="entry_list"),
     url(r"/entry/(\d+)$", EntryMySQLAPIHandler, name="entry_id"),
-    # url(r"/archive", ArchiveHandler),
-
+    url(r"/entry", EntryMySQLAPIHandler, name="entry_list")
 ]
 
 url_patterns = url_site_patterns + url_api_patterns

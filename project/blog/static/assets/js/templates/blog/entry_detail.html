@@ -1,9 +1,12 @@
-<script type="text/template" id="entry">
+<script type="text/template" id="entry_detail">
 <div class="post-preview">
     <a data-backbone="backbone" href="<%- entry.get_url %>">
         <h2 class="post-title">
             <%- entry.title %>
         </h2>
+        <h3 class="post-subtitle">
+            <%= entry.html %>
+        </h3>
     </a>
     <p class="post-meta">Posted by <%- entry.author_id %> on <%- entry.published %></p>
 </div>

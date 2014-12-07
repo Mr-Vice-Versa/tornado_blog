@@ -14,6 +14,10 @@ class IndexHandler(BaseHandler):
     def get(self):
         # Entries queryset limited by 5 items.
         queryset = self.db.query("SELECT * FROM entries ORDER BY published " "DESC LIMIT 5")
+        # add entry.get_url for templates.
+        for elem in queryset:
+            elem['get_url'] = self.reverse_url("entry_id", elem.id)
+
         if not queryset:
             self.redirect("/compose")
             return
