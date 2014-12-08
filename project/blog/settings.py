@@ -15,7 +15,7 @@ DEBUG = True
 TEMPLATE_PATH = os.path.join(os.path.dirname(__file__), "templates")
 STATIC_PATH = os.path.join(os.path.dirname(__file__), "static/assets")
 # Secure
-XSRF_COOKIES = False
+XSRF_COOKIES = True
 COOKIE_SECRET = "123456789"
 # Auth
 LOGIN_URL = "/auth/login"
