@@ -37,7 +37,7 @@ class BaseRiakHandler(RequestHandler):
         """Overaided method, for getting User.
         User id saves in cookie.
         """
-        user_id = self.get_secure_cookie("blogdemo_user")
+        user_id = self.get_secure_cookie("tornado_blog_user")
         if not user_id: return None
         user = self.db.bucket('authors').get(str(user_id))
         if not user.exists: return None

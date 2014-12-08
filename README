@@ -73,6 +73,9 @@ Deploying Tornado Blog Project:
 
    http://localhost:8888/
 
+BUG:
+	XSRF_COOKIES = True
+	Tornado dont set _xsrf cookie (time of time set).
 
 TODO:
 	tests
