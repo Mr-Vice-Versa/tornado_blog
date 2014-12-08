@@ -1,8 +1,8 @@
  /*
 Filename: appindexpage.js
-Backbone Blog App
+Backbone Blog App Index page.
 
-(c) Vladyslav Ishchenko 12.2014
+(c) Vladyslav Ishchenko 12.2014, http://python-django.net
 */
 
 

@@ -2,7 +2,7 @@
 File: initializer.js
 Backbone Apps initializer
 
-(c) Vladyslav Ishchenko 12.2014
+(c) Vladyslav Ishchenko 12.2014, http://python-django.net
 * */
 
 

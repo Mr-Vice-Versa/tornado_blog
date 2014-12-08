@@ -2,7 +2,7 @@
 Filename: EntryModel.js
 Backbone EntryModel
 
-(c) Vladyslav Ishchenko 12.2014
+(c) Vladyslav Ishchenko 12.2014, http://python-django.net
 */
 
 
@@ -27,7 +27,7 @@ define([
         urlRoot: '/entry',
         idAttribute: 'id',
 
-        // Backbone.Form
+        // For Backbone.Form
         schema: {
             id:         'Text',
             author_id:  'Text',
@@ -40,7 +40,6 @@ define([
         }
     });
 
-  // Return the model for the module.
   return EntryModel;
 
 

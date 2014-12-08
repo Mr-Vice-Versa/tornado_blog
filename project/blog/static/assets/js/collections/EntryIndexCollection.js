@@ -1,8 +1,11 @@
  /*
 Filename: EntryIndexCollection.js
-Backbone EntryIndexCollection
+Backbone.PageableCollection EntryIndexCollection
 
-(c) Vladyslav Ishchenko 12.2014
+PageableCollection for IndexPage  and for paginations in future.
+TODO: Paginations on backends and frontends.
+
+(c) Vladyslav Ishchenko 12.2014, http://python-django.net
 */
 
 

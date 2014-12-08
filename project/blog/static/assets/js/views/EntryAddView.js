@@ -1,8 +1,8 @@
 /*
 Filename: EntryDetailView.js
-Backbone Entry Detail View
+Backbone Entry Detail View for New Post creation page.
 
-(c) Vladyslav Ishchenko 12.2014
+(c) Vladyslav Ishchenko 12.2014, http://python-django.net
 */
 
 
@@ -62,7 +62,7 @@ define([
             },
 
             onSuccess: function(model, response) {
-                var href = response.id +'';
+                var href = response.slug || response.id+'';
                 href = "/entry/" + href;
                 alert("Success Create New Post! " + href);
                 Backbone.history.navigate(href, { trigger: true });

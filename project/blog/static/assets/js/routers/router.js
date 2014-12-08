@@ -2,7 +2,9 @@
 Filename: router.js
 Backbone Blog Router
 
-(c) Vladyslav Ishchenko 12.2014
+For Backbone pushstate modernizr http://modernizr.com
+
+(c) Vladyslav Ishchenko 12.2014, http://python-django.net
 */
 
 
@@ -35,7 +37,6 @@ define([
             indexPage: function(){
                 // indexPage 5 Entries.
 
-                console.log("indexPage");
                 var entryIndexCollection = new EntryIndexCollection();
                 var entryListView = new EntryListView({
                     el: $('[data-container=main]'),
@@ -47,9 +48,7 @@ define([
             },
 
             entryId: function(id){
-                // indexPage 5 get Entry by Id.
 
-                console.log("entryId", id);
                 var entryModel = new EntryModel({id: id});
                 var entryDetailView = new EntryDetailView({
                     el: $('[data-container=main]'),

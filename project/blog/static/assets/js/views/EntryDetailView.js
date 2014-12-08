@@ -1,8 +1,8 @@
 /*
 Filename: EntryDetailView.js
-Backbone Entry Detail View
+Backbone.Marionette Entry Detail View
 
-(c) Vladyslav Ishchenko 12.2014
+(c) Vladyslav Ishchenko 12.2014, http://python-django.net
 */
 
 

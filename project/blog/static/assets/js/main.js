@@ -1,7 +1,7 @@
 /*
 Filename: main.js
-
-(c) Vladyslav Ishchenko 12.2014
+Configs and run Apps.
+(c) Vladyslav Ishchenko 12.2014, http://python-django.net
 
 */
 

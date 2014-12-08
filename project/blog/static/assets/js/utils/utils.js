@@ -1,8 +1,12 @@
 /**
  File: utils.js
+Set up XSRFToken token for POST for Tornado.
 
- (c) Vladyslav Ishchenko 12.2014
+ Very IMPORTANT! line for Backbone Apps and Tornado XSRFToken (_xsrf):
 
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+ (c) Vladyslav Ishchenko 12.2014, http://python-django.net
  */
 
 
@@ -53,7 +57,7 @@ define(
                         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
                     };
                     var csrftoken = getCookie('_xsrf');
-                    console.log('getCookie', 'X-XSRFToken');
+                    console.log('getCookie', csrftoken);
                     if (!csrfSafeMethod(settings.type)) {
                        xhr.setRequestHeader("X-XSRFToken", csrftoken);
                        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -61,7 +65,6 @@ define(
                 }
             });
         };
-
 
         return utils;
     }

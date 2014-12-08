@@ -2,7 +2,7 @@
 Filename: EntryCollection.js
 Backbone EntryCollection
 
-(c) Vladyslav Ishchenko 12.2014
+(c) Vladyslav Ishchenko 12.2014, http://python-django.net
 */
 
 

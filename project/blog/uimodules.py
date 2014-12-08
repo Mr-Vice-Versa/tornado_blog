@@ -1,6 +1,7 @@
 """
-Templatetags, helper for rendering templates.
-(c) Vladyslav Ishchenko 12.2014
+Files: uimodules.py
+Templatetags or helper for rendering data into templates.
+(c) Vladyslav Ishchenko 12.2014, http://python-django.net
 """
 
 from tornado.web import UIModule

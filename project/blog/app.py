@@ -1,9 +1,11 @@
 #!/home/vice-versa/vice-versa__Inspiron-N5110VV__01.12.2014/Development/Projects/tornado_blog/env_tornado_blog/bin/python
-# Your env here.
+# ENV
+
 
 """
+File: app.py
 Tornado Blog app.
-(c) Vladyslav Ishchenko 12.2014
+(c) Vladyslav Ishchenko 12.2014, http://python-django.net
 """
 
 import torndb
@@ -13,20 +15,31 @@ from tornado.ioloop import IOLoop
 from tornado.options import options
 from tornado.web import Application
 
-from settings import settings
+import riak
+
+from settings import settings, DB_BACKEND_TYPE
 from urls import url_patterns as handlers
 
 
 class TornadoBlogApp(Application):
     """
-
+    Tornado Blog Application
+    DB: MySQL or Riak
     """
     def __init__(self):
         Application.__init__(self, handlers=handlers, **settings)
-        # One global connection to the blog DB across all handlers.
-        self.db = torndb.Connection(
-            host=options.mysql_host, database=options.mysql_database,
-            user=options.mysql_user, password=options.mysql_password)
+
+        if settings['db'] == DB_BACKEND_TYPE[1]:
+            # MySQL global connection to the blog DB across all handlers.
+            self.db = torndb.Connection(
+                host=options.mysql_host, database=options.mysql_database,
+                user=options.mysql_user, password=options.mysql_password)
+
+        elif settings['db'] == DB_BACKEND_TYPE[0]:
+            # Riak connection to the blog DB across all handlers.
+            self.db = riak.RiakClient(
+                protocol=options.riak_protocol, host=options.riak_host,
+                http_port=options.riak_http_port)
 
 
 def main():
