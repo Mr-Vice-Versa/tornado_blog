@@ -3,7 +3,13 @@ Tornado Blog Project
 (c) Vladyslav Ishchenko 12.2014, http://python-django.net
 
 
-Tech stack:
+Goal:
+	The project was written for the purpose of practice in a modern web technology in a 4 days estimate.
+	Tornado web framework and Riak distributed database was for me new.
+	During working with these technologies in a further code source will be improved.
+
+
+Technology stack:
 
 Backend:
 	Main framefork: Tornado version 4.0.2
@@ -73,9 +79,6 @@ Deploying Tornado Blog Project:
 
    http://localhost:8888/
 
-BUG:
-	XSRF_COOKIES = True
-	Tornado dont set _xsrf cookie (time of time set).
 
 TODO:
 	tests
