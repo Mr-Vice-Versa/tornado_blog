@@ -1,5 +1,9 @@
 """
+File: auth.py
+Login via GoogleMixin
 
+Tornado do not set csrf_token sometimes,
+but when call self.csrf_token it all will be alright.
 """
 
 from tornado.web import asynchronous
