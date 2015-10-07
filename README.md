@@ -1,7 +1,6 @@
 # Tornado Blog Project
 
 #### (c) Vladyslav Ishchenko 12.2014
-#### http://python-django.net
 
 
 ### Goal:
@@ -93,5 +92,3 @@
 			Add same fields to templates
 		Also:
  			Paginations on backends and frontends.
-
-#### (c) Vladyslav Ishchenko 12.2014, http://python-django.net
